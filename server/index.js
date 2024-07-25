@@ -5,7 +5,6 @@ const cors = require("cors")
 const app = express();
 const bodyParser = require("body-parser");
 
-app.options("*", cors());
 app.use(bodyParser.json());
 
 const { TextServiceClient } =
@@ -23,7 +22,7 @@ const client = new TextServiceClient({
 let answer = null;
 let prompt = "Repeat after me: one, two,";
 
-app.post("/api", (req, res) => {
+app.post("/api", cors(), (req, res) => {
   prompt = req.body.prompt;
 
   client
@@ -42,6 +41,6 @@ app.post("/api", (req, res) => {
     });
 });
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", cors(), (req, res) => res.send("Express on Vercel"));
 
 app.listen(3333, () => console.log("Server running on port 3333"));
