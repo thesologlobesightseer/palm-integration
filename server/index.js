@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
+app.use(cors());
 
 const { TextServiceClient } =
   require("@google-ai/generativelanguage").v1beta2;
