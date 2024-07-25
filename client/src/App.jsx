@@ -44,6 +44,8 @@ function App() {
         headers: {
           "Content-Type": "application/json"
         },
+        crossorigin: true,    
+        mode: "no-cors",
         body: JSON.stringify({ "prompt": userPrompt })
       })
         .then((res) => res.json())
