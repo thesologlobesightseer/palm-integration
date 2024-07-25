@@ -34,6 +34,11 @@ function App() {
     setServerData("");
     setPromptResulted(false);
     if (userPrompt !== "") {
+      let headers = new Headers();
+
+      headers.append("Content-Type", "application/json");
+      headers.append("Origin","https://chatbots-integration.vercel.app/");
+    
       fetch("https://chatbot-integration-api.vercel.app/api", {
         method: "POST",
         headers: {
