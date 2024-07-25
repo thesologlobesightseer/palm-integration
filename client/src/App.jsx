@@ -34,7 +34,7 @@ function App() {
     setServerData("");
     setPromptResulted(false);
     if (userPrompt !== "") {
-      fetch("/api", {
+      fetch("https://chatbot-integration-api.vercel.app/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
