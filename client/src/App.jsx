@@ -29,12 +29,15 @@ function App() {
     }
   }
 
+  // const API_URL = "http://localhost:3333";
+  // const API_URL = "https://chatbot-integration-api.vercel.app";
+
   const handleSubmit = () => {
     setLoading(true);
     setServerData("");
     setPromptResulted(false);
     if (userPrompt !== "") {
-      fetch("/api", {
+      fetch("https://chatbot-integration-api.vercel.app/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
