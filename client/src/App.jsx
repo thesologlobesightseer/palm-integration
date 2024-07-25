@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
-import "dotenv/config"
 
 import "./App.css";
 
@@ -39,7 +38,7 @@ function App() {
     setServerData("");
     setPromptResulted(false);
     if (userPrompt !== "") {
-      fetch(process.env.API_URL + "/api", {
+      fetch("https://chatbot-integration-api.vercel.app/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
