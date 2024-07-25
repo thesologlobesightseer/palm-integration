@@ -7,6 +7,7 @@ const API_URL = "https://chatbot-integration-api.vercel.app";
 export default defineConfig({
   plugins: [react()],
   server: {
+    cors: false,
     proxy: {
       "/api": {
         target: API_URL,
