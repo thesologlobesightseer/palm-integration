@@ -38,8 +38,8 @@ function App() {
     setServerData("");
     setPromptResulted(false);
     if (userPrompt !== "") {
-      fetch("https://chatbot-integration-api.vercel.app", {
-        method: "GET",
+      fetch("https://chatbot-integration-api.vercel.app/api", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
