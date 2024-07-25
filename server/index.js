@@ -21,6 +21,8 @@ let prompt = "Repeat after me: one, two,";
 
 app.post("/api", (req, res) => {
   prompt = req.body.prompt;
+
+  console.log(prompt, "PROMOT")
   client
     .generateText({
       model: MODEL_NAME,
@@ -35,10 +37,6 @@ app.post("/api", (req, res) => {
       console.error(err.details);
       res.json(err.details);
     });
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello World!")
 });
 
 app.listen(3333, () => console.log("Server running on port 3333"));
