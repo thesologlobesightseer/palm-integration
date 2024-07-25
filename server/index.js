@@ -1,7 +1,9 @@
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -20,7 +22,7 @@ const client = new TextServiceClient({
 let answer = null;
 let prompt = "Repeat after me: one, two,";
 
-app.post('/api', (req, res) => {
+app.post("/api", (req, res) => {
   prompt = req.body.prompt;
   client
     .generateText({
@@ -38,4 +40,4 @@ app.post('/api', (req, res) => {
     });
 });
 
-app.listen(3333, () => console.log('Server running on port 3333'));
+app.listen(3333, () => console.log("Server running on port 3333"));
